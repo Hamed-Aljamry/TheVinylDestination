@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
 puts "Cleaning up database....."
 
 Vinyl.destroy_all
@@ -21,17 +24,18 @@ users = []
 end
 puts "Users created"
 puts "Creating Vinyls....."
+
 vinyls = []
-10.times do |n|
+10.times do
   vinyls << Vinyl.create!(
-    name: "Vinyl #{n + 1}",
-    description: "This is Vinyl #{n + 1}",
+    name: Faker::Music.album,
+    description: Faker::Lorem.paragraph,
     price: rand(10..50),
-    artist: "Artist #{n + 1}",
-    genre: "Genre #{n + 1}",
-    released_at: Date.today - rand(1..10).years,
-    music_url: "https://example.com/music/#{n+1}.mp3",
-    user: users[n]
+    artist: Faker::Music.band,
+    genre: Faker::Music.genre,
+    released_at: Faker::Date.between(from: 30.years.ago, to: Date.today),
+    music_url: "https://example.com/music/#{rand(1..100)}.mp3",
+    user: users.sample
   )
 end
 
