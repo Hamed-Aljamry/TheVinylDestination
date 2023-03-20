@@ -3,6 +3,10 @@ class VinylsController < ApplicationController
     @vinyls = Vinyl.all
   end
 
+  def show
+    @vinyl = Vinyl.find(params[:id])
+  end
+
   private
 
   def vinyl_params
