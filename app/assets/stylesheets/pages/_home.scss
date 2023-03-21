@@ -1,1 +1,58 @@
 // Specific CSS for your home-page
+.main-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // height: 100vh;
+}
+
+.message {
+position: absolute;
+left: 7.14%;
+right: 60.12%;
+top: 16.27%;
+bottom: 74.13%;
+font-family: 'Gotham';
+font-style: normal;
+font-weight: 500;
+font-size: 75px;
+line-height: 72px;
+color: #EA5455;
+}
+
+.welcome {
+position: absolute;
+left: 62.96%;
+right: 4.7%;
+top: 19.27%;
+bottom: 77.72%;
+font-family: 'Gotham';
+font-style: normal;
+font-weight: 500;
+font-size: 75px;
+line-height: 72px;
+/* identical to box height */
+text-align: center;
+color: #002B5B;
+}
+
+.line-items {
+justify-content: center;
+display: flex;
+align-items: center;
+}
+
+button {
+position: absolute;
+left: 7.14%;
+right: 77.18%;
+top: 25%;
+bottom: 69.55%;
+background: #EA5455;
+border-radius: 5px;
+}
+
+h1 {
+  margin: auto;
+}
