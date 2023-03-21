@@ -19,6 +19,7 @@ users = []
 10.times do |n|
   users << User.create!(
     email: "user#{n + 1}@example.com",
+    nickname: Faker::Name.first_name,
     password: "password"
   )
 end
