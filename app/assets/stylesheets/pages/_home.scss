@@ -19,6 +19,7 @@ font-weight: 500;
 font-size: 75px;
 line-height: 72px;
 color: #EA5455;
+padding: 10px;
 }
 
 .welcome {
@@ -37,22 +38,17 @@ text-align: center;
 color: #002B5B;
 }
 
-.line-items {
-justify-content: center;
-display: flex;
-align-items: center;
+h1 {
+  margin: auto;
 }
 
 button {
-position: absolute;
-left: 7.14%;
-right: 77.18%;
-top: 25%;
-bottom: 69.55%;
-background: #EA5455;
-border-radius: 5px;
-}
-
-h1 {
-  margin: auto;
+ margin: auto;
+ background-color: #000000;
+ color: #FFFFFF;
+ float: right;
+ padding: 2px;
+ border-radius: 10px;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 10px;
 }
