@@ -1,8 +1,8 @@
 // Specific CSS for your home-page
 .main-home {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  // flex-direction: column;
+  // align-items: center;
   justify-content: center;
 }
 
@@ -21,10 +21,11 @@
 
 .welcome {
   position: absolute;
+  margin-left: 5%;
+  right: 0;
   left: 62.96%;
-  right: 4.7%;
-  top: 19.27%;
-  bottom: 77.72%;
+  // top: 19.27%;
+  bottom: 75.72%;
   font-size: 200px;
   color: #002B5B;
 }
@@ -45,4 +46,14 @@ button {
   width: 10%;
   border: #EA5455;
   font-size: 20px;
+}
+
+.first-line {
+  position: absolute;
+  left: 40%;
+  right: 58.35%;
+  top: 7.2%;
+  bottom: 25.6%;
+  background: #002B5B;
+  margin-left: 10px;
 }
