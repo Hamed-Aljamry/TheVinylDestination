@@ -1,10 +1,10 @@
 // Specific CSS for your home-page
-.main-home {
-  display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  justify-content: center;
-}
+// .main-home {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// }
 
 .message {
   position: absolute;
@@ -48,54 +48,56 @@ button {
   font-size: 20px;
 }
 
-// .line-items {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh; /* or any height you want */
-// }
+
 
 .svg1 {
   position: absolute;
-  left: 0%;
-  right: 58.35%;
-  top: 0%;
-  bottom: 32.6%;
+  // left: 4%;
+  // right: 55.35%;
+  // top: 13.3%;
+  // bottom: 32.6%;
 }
 
 .svg2 {
   position: absolute;
-  left: 0.46%;
-  right: 54.88%;
-  top: 0%;
-  bottom: 10.73%;
+  // left: 4.46%;
+  // right: 21.88%;
+  // top: 13.3%;
+  // bottom: 10.73%;
 }
 .svg3 {
   position: absolute;
-  left: 26.93%;
-  right: 51.98%;
-  top: 0%;
-  bottom: 10.29%;
+  left: 25%;
+  // right: 47.98%;
+  // top: 13.3%;
+  // bottom: 10.29%;
 }
+
 .svg4 {
   position: absolute;
-  left: 70.42%;
-  right: 6.47%;
-  top: 0%;
-  bottom: 10.18%;
+  left: 46%;
+  // right: 40.47%;
+  // top: 0%;
+  // bottom: 10.18%;
 }
 .svg5 {
   position: absolute;
-  left: 99.52%;
-  right: -44.19%;
-  top: 0%;
-  bottom: 10.73%;
+  left: 49%;
+  // right: -44.19%;
+  // top: 0%;
+  // bottom: 10.73%;
 }
 .svg6 {
   position: absolute;
-  left: 99.98%;
-  right: -41.63%;
-  top: 0%;
-  bottom: 32.6%;
+  // left: 63.98%;
+  // right: -41.63%;
+  // top: 0%;
+  // bottom: 32.6%;
 }
+
+// .line-items {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-left: 40px;
+// }
