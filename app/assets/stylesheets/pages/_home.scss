@@ -1,10 +1,10 @@
 // Specific CSS for your home-page
-// .main-home {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// }
+.main-home {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+}
 
 .message {
   position: absolute;
@@ -21,12 +21,9 @@
 
 .welcome {
   position: absolute;
-  margin-left: 5%;
-  right: 0;
-  left: 62.96%;
-  // top: 19.27%;
-  bottom: 75.72%;
-  font-size: 200px;
+  margin-left: 65%;
+  top: 23%;
+  font-size: 250px;
   color: #002B5B;
 }
 
@@ -52,7 +49,8 @@ button {
 
 .svg1 {
   position: absolute;
-  // left: 4%;
+  left: 8%;
+  max-height: 75rem;
   // right: 55.35%;
   // top: 13.3%;
   // bottom: 32.6%;
@@ -60,14 +58,16 @@ button {
 
 .svg2 {
   position: absolute;
-  // left: 4.46%;
+  left: 8%;
+  max-height: 98rem;
   // right: 21.88%;
   // top: 13.3%;
   // bottom: 10.73%;
 }
 .svg3 {
   position: absolute;
-  left: 25%;
+  left: 30%;
+  max-height: 100rem;
   // right: 47.98%;
   // top: 13.3%;
   // bottom: 10.29%;
@@ -75,21 +75,24 @@ button {
 
 .svg4 {
   position: absolute;
-  left: 46%;
+  left: 47%;
+  max-height: 100rem;
   // right: 40.47%;
   // top: 0%;
   // bottom: 10.18%;
 }
 .svg5 {
   position: absolute;
-  left: 49%;
+  left: 47%;
+  max-height: 100rem;
   // right: -44.19%;
   // top: 0%;
   // bottom: 10.73%;
 }
 .svg6 {
   position: absolute;
-  // left: 63.98%;
+  left: 49.5%;
+  max-height: 75rem;
   // right: -41.63%;
   // top: 0%;
   // bottom: 32.6%;
