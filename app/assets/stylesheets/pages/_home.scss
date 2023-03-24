@@ -5,12 +5,12 @@
   // align-items: center;
   justify-content: center;
   height: 600px;
-  // use this when done positioning!!!
-  // overflow: hidden;
+  overflow: hidden;
+
 }
 
 .message {
-  position: relative;
+  position: absolute;
   left: 7.14%;
   right: 60.12%;
   top: 16.27%;
@@ -23,7 +23,7 @@
 }
 
 .welcome {
-  position: relative;
+  position: absolute;
   margin-left: 65%;
   top: 23%;
   font-size: 250px;
@@ -51,7 +51,7 @@ button {
 
 
 .svg1 {
-  position: relative;
+  position: absolute;
   left: 8%;
   max-height: 75rem;
   // right: 55.35%;
@@ -60,7 +60,7 @@ button {
 }
 
 .svg2 {
-  position: relative;
+  position: absolute;
   left: 8%;
   max-height: 98rem;
   // right: 21.88%;
@@ -68,7 +68,7 @@ button {
   // bottom: 10.73%;
 }
 .svg3 {
-  position: relative;
+  position: absolute;
   left: 30%;
   max-height: 100rem;
   // right: 47.98%;
@@ -77,7 +77,7 @@ button {
 }
 
 .svg4 {
-  position: relative;
+  position: absolute;
   left: 47%;
   max-height: 100rem;
   // right: 40.47%;
@@ -85,7 +85,7 @@ button {
   // bottom: 10.18%;
 }
 .svg5 {
-  position: relative;
+  position: absolute;
   left: 47%;
   max-height: 100rem;
   // right: -44.19%;
@@ -93,7 +93,7 @@ button {
   // bottom: 10.73%;
 }
 .svg6 {
-  position: relative;
+  position: absolute;
   left: 49.5%;
   max-height: 75rem;
   // right: -41.63%;
