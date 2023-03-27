@@ -34,7 +34,7 @@ h1 {
   font-size: 50%;
 }
 
-button {
+.button {
   position:absolute;
   margin-top:30%;
   right: 82.4%;
@@ -45,9 +45,11 @@ button {
   width: 10%;
   border: #EA5455;
   font-size: 20px;
-  text-decoration: none !important;
 }
 
+.no-underline {
+  text-decoration: none;
+}
 
 
 .svg1 {
@@ -108,13 +110,7 @@ button {
   margin-left: 10%;
 }
 
-.first-three {
 
-}
-
-// .last-three{
-
-// }
 
 @media only screen and (max-width: 600px) {
   body {
