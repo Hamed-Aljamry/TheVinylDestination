@@ -1,4 +1,4 @@
 <% @vinyls.each do |vinyl| %>
   <p> <%= link_to vinyl.name, vinyl_path(vinyl)%>--<%= vinyl.description %></p>
 <% end %>
-<%= link_to 'create', new_vinyl_path %>
+<button><%= link_to 'create', new_vinyl_path %></button>
