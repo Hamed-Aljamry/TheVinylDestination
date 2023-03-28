@@ -12,9 +12,13 @@ class VinylsController < ApplicationController
   end
 
   def create
-    @vinyl = Vinyl.new(params[:vinyl])
-    @vinyl.save # Will raise ActiveModel::ForbiddenAttributesError
-    redirect_to
+    @vinyl = Vinyl.new(vinyl_params)
+    @vinyl.user = current_user
+    if @vinyl.save
+      redirect_to vinyl_path(@vinyl)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

@@ -1,9 +1,13 @@
 <%= form_with model: @vinyl do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <%= f.label :artist %>
+  <%= f.text_field :artist %>
+
+
   <%= f.submit %>
 <% end %>
