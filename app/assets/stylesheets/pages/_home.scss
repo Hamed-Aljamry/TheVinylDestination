@@ -66,6 +66,20 @@ h1 {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Hover effect */
