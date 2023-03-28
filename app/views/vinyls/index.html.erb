@@ -1,4 +1,5 @@
 <% @vinyls.each do |vinyl| %>
-  <p> <%= link_to vinyl.name, vinyl_path(vinyl)%>--<%= vinyl.description %></p>
+  <%=link_to  vinyl_path(vinyl) do cl_image_tag vinyl.image, class: "card__image" end%>
+  <p><%= vinyl.name %></p>
 <% end %>
-<button><%= link_to 'create', new_vinyl_path %></button>
+<button><%= link_to 'create vinyl', new_vinyl_path %></button>

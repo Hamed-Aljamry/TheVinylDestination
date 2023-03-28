@@ -1,4 +1,4 @@
-<%= form_with model: @vinyl do |f| %>
+<%= simple_form_for(@vinyl) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :description %>
@@ -7,7 +7,6 @@
   <%= f.text_field :genre %>
   <%= f.label :artist %>
   <%= f.text_field :artist %>
-
-
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
