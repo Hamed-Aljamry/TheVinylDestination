@@ -1,12 +1,1 @@
-<%= simple_form_for(@vinyl) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :artist %>
-  <%= f.text_field :artist %>
-  <%= f.input :image, label: "Enter image URL", placeholder: "Google-image-url" %>
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'form' %>
