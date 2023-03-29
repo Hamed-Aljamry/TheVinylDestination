@@ -1,6 +1,10 @@
 <% @vinyls.each do |vinyl| %>
-  <%= cl_image_tag vinyl.photo.key %>
+  <%= cl_image_tag vinyl.photo.key, height: 300, width: 400, crop: :fill %>
   <p><%= vinyl.name %> -- <%= vinyl.description %></p>
+  <% if vinyl.user_id == current_user.id %>
+    <button class="btn-delete"<%= link_to "Delete Vinyl", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+  <% end %>
 <% end %>
 
-<button><%= link_to 'create vinyl', new_vinyl_path %></button>
+<h4>Want to list your own Vinyl?</h4>
+<button class="btn-index"><%= link_to 'List Vinyl', new_vinyl_path %></button>

@@ -21,6 +21,13 @@ class VinylsController < ApplicationController
     end
   end
 
+  def destroy
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to vinyls_path, status: :see_other
+  end
+
   private
 
   def vinyl_params
