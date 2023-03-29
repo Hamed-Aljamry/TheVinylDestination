@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 puts "Cleaning up database....."
 
@@ -26,9 +27,9 @@ end
 puts "Users created"
 puts "Creating Vinyls....."
 
-vinyls = []
 10.times do
-  vinyls << Vinyl.create!(
+  file = URI.open("https://upload.wikimedia.org/wikipedia/en/1/10/Childish_Gambino_-_Awaken%2C_My_Love%21.png")
+  vinyl = Vinyl.create!(
     name: Faker::Music.album,
     description: Faker::Lorem.paragraph,
     price: rand(10..50),
@@ -38,6 +39,9 @@ vinyls = []
     music_url: "https://example.com/music/#{rand(1..100)}.mp3",
     user: users.sample
   )
+  vinyl.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  vinyl.save
 end
+
 
 puts "seeds created"
