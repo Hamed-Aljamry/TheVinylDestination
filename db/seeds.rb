@@ -27,8 +27,10 @@ end
 puts "Users created"
 puts "Creating Vinyls....."
 
+images = [ "app/assets/images/TylerVinyl.jpeg",  "app/assets/images/DrakeVinyl.webp",  "app/assets/images/WeekndVinyl.jpeg"]
+
 10.times do
-  file = URI.open("https://upload.wikimedia.org/wikipedia/en/1/10/Childish_Gambino_-_Awaken%2C_My_Love%21.png")
+  file = URI.open(images.sample)
   vinyl = Vinyl.create!(
     name: Faker::Music.album,
     description: Faker::Lorem.paragraph,
