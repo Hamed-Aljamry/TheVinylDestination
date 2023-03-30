@@ -1,12 +1,9 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.container {
+  margin: 10 22px;
 }
 
 .card {
-  width: 30%;
-  margin-bottom: 20px;
+  margin: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
@@ -19,31 +16,22 @@
   height: auto;
 }
 
-.card-body {
-  padding: 10px;
-}
-
-.card h4 {
-  margin: 0;
+.card-title {
   font-size: 18px;
   font-weight: 600;
+  margin: 10px;
 }
 
-.card p {
-  margin: 0;
+.card-text {
   font-size: 14px;
+  margin: 10px;
 }
 
-.btn-delete {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #dc3545;
-  color: #fff;
-  cursor: pointer;
+.btn-danger {
+  margin: 2px;
+  border-radius: 5%;
 }
 
-.btn-delete:hover {
-  background-color: #c82333;
+.btn-danger {
+  background-color: red;
 }
