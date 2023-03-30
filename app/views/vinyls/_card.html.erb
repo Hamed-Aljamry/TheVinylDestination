@@ -1,9 +1,16 @@
-<% @vinyls.each do |vinyl| %>
-  <%= link_to vinyl_path(vinyl) do  %>
-    <%= cl_image_tag vinyl.photo.key, height: 400, width: 400, crop: :fill %>
-    <p><%= vinyl.name %> -- <%= vinyl.description %></p>
+<div class="card-container">
+  <% @vinyls.each do |vinyl| %>
+    <div class="card">
+      <%= link_to vinyl_path(vinyl) do %>
+        <%= cl_image_tag vinyl.photo.key, height: 400, width: 400, crop: :fill %>
+        <div class="card-body">
+          <h4><%= vinyl.name %></h4>
+          <p><%= vinyl.description %></p>
+        </div>
+      <% end %>
+      <% if vinyl.user_id == current_user.id %>
+        <button class="btn-delete"<%= link_to "Delete Vinyl", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+      <% end %>
+    </div>
   <% end %>
-  <% if vinyl.user_id == current_user.id %>
-    <button class="btn-delete"<%= link_to "Delete Vinyl", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
-  <% end %>
-<% end %>
+</div>
