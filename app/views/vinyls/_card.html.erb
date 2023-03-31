@@ -9,7 +9,6 @@
                 <div class="card">
                   <%= link_to vinyl_path(vinyl) do %>
                     <%= cl_image_tag vinyl.photo.key, height: 300, width: 300, crop: :fill %>
-                    <div class="play-button"></div>
                     <div class="card-body">
                       <h5 class="card-title"><%= vinyl.name %></h5>
                       <p class="card-text"><%= vinyl.description %></p>
@@ -20,7 +19,7 @@
                   <% end %>
                   <% if vinyl.user_id == current_user.id %>
                     <div class="card-footer">
-                      <%= link_to "Delete Vinyl", vinyl_path(vinyl), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+                      <%= button_to "Delete Vinyl", vinyl_path(vinyl), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", onclick: "return confirm('Are you sure?')" %>
                     </div>
                   <% end %>
                 </div>
