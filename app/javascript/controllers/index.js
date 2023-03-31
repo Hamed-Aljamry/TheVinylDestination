@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import SeeMoreController from "./see_more_controller"
+application.register("see-more", SeeMoreController)
