@@ -1,6 +1,7 @@
 class VinylsController < ApplicationController
   def index
     @vinyls = Vinyl.all
+    @vinyl = Vinyl.new
   end
 
   def show
