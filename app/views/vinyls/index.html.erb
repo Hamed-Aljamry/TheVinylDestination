@@ -7,54 +7,32 @@
 <button class="btn-index"><%= link_to 'List Vinyl', new_vinyl_path %></button>
 
 
-<button class="btn" id="open-modal">Add Vinyl</button>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <%= simple_form_for(@vinyl) do |f| %>
-      <h2>Add Vinyl</h2>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.label :description %>
-      <%= f.text_field :description, class: "form-control" %>
-      <%= f.label :genre %>
-      <%= f.text_field :genre, class: "form-control" %>
-      <%= f.label :artist %>
-      <%= f.text_field :artist, class: "form-control" %>
-      <%= f.input :photo, label: "Enter image URL", placeholder: "Google-image-url", class: "form-control" %>
-      <%= f.submit "Add Vinyl", class: "btn btn-primary" %>
-    <% end %>
-    <button class="btn" id="close-modal">Cancel</button>
-  </div>
-</div>
 
 <button class="btn"><%= link_to 'Back to Home', root_path %></button>
 
 
-<script>
-// Get the modal
-var modal = document.getElementById("modal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("open-modal");
+<div data-controller="modal">
+  <!-- Button to trigger modal -->
+  <button data-modal-target="btn">Open Modal</button>
 
-// Get the close button
-var closeBtn = document.getElementById("close-modal");
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks the close button, close the modal
-closeBtn.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+  <!-- Modal -->
+  <div data-modal-target="modal" class="modal">
+    <div class="modal-content">
+      <%= simple_form_for(@vinyl) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+        <%= f.label :genre %>
+        <%= f.text_field :genre, class: "form-control" %>
+        <%= f.label :artist %>
+        <%= f.text_field :artist, class: "form-control" %>
+        <%= f.input :photo, label: "Enter image URL", placeholder: "Google-image-url", class: "form-control" %>
+        <%= f.submit "Add Vinyl", class: "btn btn-primary" %>
+      <% end %>
+    <button data-modal-target="closeBtn">Close</button>
+    </div>
+  </div>
+</div>
