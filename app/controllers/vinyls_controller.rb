@@ -5,12 +5,23 @@ class VinylsController < ApplicationController
 
     if params[:query].present?
       @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    else
+      @vinyls = Vinyl.all
     end
 
-    respond_to do |format|
-      format.html
-      format.js
+    if turbo_frame_request?
+      render partial: "vinyls", locals: { vinyls: @vinyls }
+    else
+      render :index
     end
+    # if params[:query].present?
+    #   @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    # end
+
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def search
