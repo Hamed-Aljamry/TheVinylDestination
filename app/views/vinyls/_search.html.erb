@@ -1,9 +1,12 @@
-<div data-controller="search">
-  <%= form_tag(vinyls_path, method: :get, remote: true, class: "search-form") do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search Vinyls...", data: { target: "search.input" } %>
-  <% end %>
+<p style="color: green"><%= notice %></p>
 
-  <div data-target="search.results">
-    <%= render partial: "vinyls/card", locals: { vinyls: @vinyls } %>
+<h1 class="font-bold text-3xl mb-3">Bands</h1>
+
+<%= form_with(url: vinyls_path, method: :get, data: {controller: "search", turbo_frame: "vinyls", turbo_action: "advance"}) do |form| %>
+  <%= form.label :query, "Search by band name:", class: "block mb-2" %>
+  <div class="flex space-x-3">
+    <%= form.text_field :query, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none", data: {action: "input->search#search"} %>
+
+    <%= form.submit 'Search', class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
   </div>
-</div>
+<% end %>
