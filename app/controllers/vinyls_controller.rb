@@ -2,6 +2,11 @@ class VinylsController < ApplicationController
   def index
     @vinyls = Vinyl.all
     @vinyl = Vinyl.new
+    if params[:query].present?
+      @vinyls = Vinyl.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @vinyls = Vinyl.all
+    end
   end
 
   def show

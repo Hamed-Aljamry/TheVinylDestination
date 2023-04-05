@@ -1,5 +1,9 @@
+<%= form_with url: vinyls_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a Vinyl"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 <%= render partial: 'card' %>
-
-
-<h4>Want to list your own Vinyl?</h4>
-<%= render partial: 'form' %>
