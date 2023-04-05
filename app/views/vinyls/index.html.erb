@@ -6,4 +6,17 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+
+
+<div data-controller="search">
+  <%= form_tag(vinyls_path, method: :get, remote: true, class: "search-form") do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search Vinyls...", data: { target: "search.input" } %>
+  <% end %>
+
+  <div data-target="search.results">
+    <%= render partial: "vinyls/card", locals: { vinyls: @vinyls } %>
+  </div>
+</div>
+
 <%= render partial: 'card' %>
