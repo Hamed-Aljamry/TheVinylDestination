@@ -5,7 +5,7 @@
   <!-- Modal -->
   <div data-modal-target="modal" class="modal">
     <div class="modal-content">
-      <%= simple_form_for(@vinyl) do |f| %>
+      <%= simple_form_for Vinyl.new do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control" %>
         <%= f.label :description %>
