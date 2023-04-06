@@ -14,6 +14,7 @@ class VinylsController < ApplicationController
     else
       render :index
     end
+
     # if params[:query].present?
     #   @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     # end
