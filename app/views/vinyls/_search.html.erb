@@ -1,6 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
-
 <%= form_with(url: vinyls_path, method: :get, data: {controller: "search", turbo_frame: "vinyls", turbo_action: "advance"}) do |form| %>
   <%= form.label :query, "Search by band name:", class: "block mb-2" %>
   <div class="flex space-x-3">
