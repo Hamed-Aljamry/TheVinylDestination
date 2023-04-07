@@ -25,16 +25,16 @@ class VinylsController < ApplicationController
     # end
   end
 
-  def search
-    query = params[:query]
-    if query.present?
-      sql_query = "name @@ :query OR description @@ :query"
-      @vinyls = Vinyl.where(sql_query, query: query)
-    else
-      @vinyls = Vinyl.all
-    end
-    render partial: "card", locals: { vinyls: @vinyls }
-  end
+  # def search
+  #   query = params[:query]
+  #   if query.present?
+  #     sql_query = "name @@ :query OR description @@ :query"
+  #     @vinyls = Vinyl.where(sql_query, query: query)
+  #   else
+  #     @vinyls = Vinyl.all
+  #   end
+  #   render partial: "card", locals: { vinyls: @vinyls }
+  # end
 
   def show
     @vinyl = Vinyl.find(params[:id])
