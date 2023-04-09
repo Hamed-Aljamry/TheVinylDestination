@@ -31,6 +31,8 @@ gem 'faker'
 
 gem "pg_search"
 
+gem 'rspotify'
+
 gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
