@@ -48,8 +48,9 @@ class VinylsController < ApplicationController
   def create
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
-    # track_id = params[:vinyl][:track_id]
-    # @vinyl.track_url = "https://open.spotify.com/embed/track/#{track_id}"
+    if params[:track_id].present?
+      @vinyl.music_url = RSpotify::Track.find(params[:track_id]).preview_url
+    end
     if @vinyl.save
       redirect_to vinyls_path
     else
