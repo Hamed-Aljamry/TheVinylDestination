@@ -25,16 +25,14 @@ class VinylsController < ApplicationController
     # end
   end
 
-  # def search
-  #   query = params[:query]
-  #   if query.present?
-  #     sql_query = "name @@ :query OR description @@ :query"
-  #     @vinyls = Vinyl.where(sql_query, query: query)
-  #   else
-  #     @vinyls = Vinyl.all
-  #   end
-  #   render partial: "card", locals: { vinyls: @vinyls }
-  # end
+  def get_music_url
+    vinyl = Vinyl.find(params[:id])
+    RSpotify.authenticate('51302eaf378e4018a925c35e23ec25b5', '54705cde78e347739ed9df87ef37011d')
+    track = RSpotify::Track.search("#{vinyl.name} #{vinyl.artist}").first
+    vinyl.music_url = track.preview_url
+    vinyl.save
+    render json: { music_url: vinyl.music_url }
+  end
 
   def show
     @vinyl = Vinyl.find(params[:id])
