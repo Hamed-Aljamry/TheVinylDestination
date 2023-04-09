@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <div class="card-deck">
+       <audio data-target="play.audio" src=""></audio>
         <% @vinyls.each_slice(3) do |vinyls_row| %>
           <div class="row">
             <% vinyls_row.each do |vinyl| %>
@@ -13,9 +14,9 @@
                       <h5 class="card-title"><%= vinyl.name %></h5>
                       <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
                     </div>
-                     <div class="play-button">
-                      <button data-controller="play" data-play-vinyl-id="<%= vinyl.id %>">Play</button>
-                    </div>
+                     <%# <div class="play-button"> %>
+                        <button class="play-button" data-vinyl-id="<%= vinyl.id %>">Play</button>
+                    <%# </div> %>
                   <%# <% end %> %>
                   <% if vinyl.user_id == current_user.id %>
                     <div class="card-footer">
@@ -31,3 +32,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.play-button').click(function() {
+      var vinyl_id = $(this).data('vinyl-id');
+      $.ajax({
+        url: '/vinyls/' + vinyl_id + '/get_music_url',
+        type: 'GET',
+        success: function(response) {
+          var music_url = response.music_url;
+          $('#audio-player').jPlayer('setMedia', {
+            mp3: music_url
+          });
+          $('#audio-player').jPlayer('play');
+        }
+      });
+    });
+  });
+</script>
