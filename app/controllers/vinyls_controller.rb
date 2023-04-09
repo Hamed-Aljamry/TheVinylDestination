@@ -42,6 +42,7 @@ class VinylsController < ApplicationController
 
   def new
     @vinyl = Vinyl.new
+    @track = RSpotify::Track.new
   end
 
   def create
