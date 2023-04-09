@@ -10,6 +10,9 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import PlayController from "./play_controller"
+application.register("play", PlayController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 
