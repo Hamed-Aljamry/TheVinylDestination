@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_09_123652) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_112149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_123652) do
     t.string "music_url"
     t.bigint "user_id", null: false
     t.string "track_id"
+    t.string "spotify_url"
     t.index ["user_id"], name: "index_vinyls_on_user_id"
   end
 
