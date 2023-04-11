@@ -42,7 +42,6 @@ images = ["app/assets/images/TylerVinyl.jpeg", "app/assets/images/DrakeVinyl.web
     genre: Faker::Music.genre,
     released_at: Faker::Date.between(from: 30.years.ago, to: Date.today),
     music_url: "https://example.com/music/#{rand(1..100)}.mp3",
-    spotify_url: RSpotify::Track.search(Faker::Music::PearlJam.song).first.external_urls['spotify'],
     user: users.sample
   )
   vinyl.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
