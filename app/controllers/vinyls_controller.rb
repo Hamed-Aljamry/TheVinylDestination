@@ -18,18 +18,6 @@ class VinylsController < ApplicationController
     end
   end
 
-  def search_songs
-    @query = params[:query]
-    @tracks = RSpotify::Track.search(@query)
-  end
-
-  def play_song
-    @track = RSpotify::Track.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def show
     @vinyl = Vinyl.find(params[:id])
   end
