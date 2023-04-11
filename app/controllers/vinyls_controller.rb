@@ -39,11 +39,7 @@ class VinylsController < ApplicationController
   def create
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
-    track = RSpotify::Track.find(@vinyl.track_id)
 
-    # Set the vinyl's music_url and spotify_url attributes using the track's URLs
-    @vinyl.music_url = track.preview_url
-    @vinyl.spotify_url = track.external_urls['spotify']
     if @vinyl.save
       redirect_to @vinyl, notice: 'Vinyl was successfully created.'
     else

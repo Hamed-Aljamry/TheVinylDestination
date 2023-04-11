@@ -14,17 +14,12 @@
         <%= f.text_field :genre, class: "form-control" %>
         <%= f.label :artist %>
         <%= f.text_field :artist, class: "form-control" %>
-        <%= f.label :track_id, "Search for a track on Spotify" %>
-        <%= f.text_field :track_id, class: "form-control", data: { target: "vinyls.search", action: "keyup->vinyls#search" } %>
-
-        <!-- Add a section for displaying the search results -->
-        <div data-vinyls-target="searchResults"></div>
-
+        <%= f.label :track_id %>
+        <%= f.text_field :track_id, class: 'form-control' %>
         <%= f.input :photo, label: "Enter image URL", placeholder: "Google-image-url", class: "form-control" %>
         <%= f.submit "Add Vinyl", class: "btn btn-primary" %>
       <% end %>
-
-      <button data-modal-target="closeBtn" class="closebtn">Close</button>
+    <button data-modal-target="closeBtn" class="closebtn">Close</button>
     </div>
   </div>
 </div>
