@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/vinyls/:id/get_music_url', to: 'vinyls#get_music_url', as: 'vinyl_get_music_url'
 
   resources :vinyls do
     collection do

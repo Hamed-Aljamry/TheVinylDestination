@@ -16,20 +16,18 @@ class VinylsController < ApplicationController
     else
       render :index
     end
-
-    # if params[:query].present?
-    #   @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-    # end
-
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
-  def search
+  def search_songs
     @query = params[:query]
     @tracks = RSpotify::Track.search(@query)
+  end
+
+  def play_song
+    @track = RSpotify::Track.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
