@@ -27,15 +27,6 @@ class VinylsController < ApplicationController
     # end
   end
 
-  def get_music_url
-    vinyl = Vinyl.find(params[:id])
-    RSpotify.authenticate('51302eaf378e4018a925c35e23ec25b5', '54705cde78e347739ed9df87ef37011d')
-    track = RSpotify::Track.search("#{vinyl.name} #{vinyl.artist}").first
-    vinyl.music_url = track.preview_url
-    vinyl.save
-    render json: { music_url: vinyl.music_url }
-  end
-
   def show
     @vinyl = Vinyl.find(params[:id])
   end
@@ -48,13 +39,15 @@ class VinylsController < ApplicationController
   def create
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
-    if params[:track_id].present?
-      @vinyl.music_url = RSpotify::Track.find(params[:track_id]).preview_url
-    end
+    track = RSpotify::Track.find(@vinyl.track_id)
+
+    # Set the vinyl's music_url and spotify_url attributes using the track's URLs
+    @vinyl.music_url = track.preview_url
+    @vinyl.spotify_url = track.external_urls['spotify']
     if @vinyl.save
-      redirect_to vinyls_path
+      redirect_to @vinyl, notice: 'Vinyl was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -68,6 +61,6 @@ class VinylsController < ApplicationController
   private
 
   def vinyl_params
-    params.require(:vinyl).permit(:name, :description, :photo, :genre, :artist, :price, :track_id)
+    params.require(:vinyl).permit(:name, :description, :photo, :genre, :artist, :price, :track_id, :user_id, :released_at)
   end
 end
