@@ -8,16 +8,16 @@
             <% vinyls_row.each do |vinyl| %>
               <div class="col-md-4">
                 <div class="card">
-                  <%# <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %> %>
+                  <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
                     <%= cl_image_tag vinyl.photo.key, height: 300, width: 300, crop: :fill %>
                     <div class="card-body">
                       <h5 class="card-title"><%= vinyl.name %></h5>
                       <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
                     </div>
-                     <%# <div class="play-button"> %>
-                        <button class="play-button" data-vinyl-id="<%= vinyl.id %>">Play</button>
-                    <%# </div> %>
-                  <%# <% end %> %>
+                     <div class="play-button">
+                        <%# This is where the button is supposed to be  %>
+                      </div>
+                    <% end %>
                   <% if vinyl.user_id == current_user.id %>
                     <div class="card-footer">
                       <%= button_to "Delete Vinyl", vinyl_path(vinyl), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", onclick: "return confirm('Are you sure?')" %>
@@ -32,24 +32,3 @@
     </div>
   </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jquery.jplayer.min.js"></script>
-
-
-<script>
-  $(document).ready(function() {
-    $('.play-button').click(function() {
-      var vinyl_id = $(this).data('vinyl-id');
-      $.ajax({
-        url: '/vinyls/' + vinyl_id + '/get_music_url',
-        type: 'GET',
-        success: function(response) {
-          var music_url = response.music_url;
-          $('#audio-player').jPlayer('setMedia', {
-            mp3: music_url
-          });
-          $('#audio-player').jPlayer('play');
-        }
-      });
-    });
-  });
-</script>
