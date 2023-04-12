@@ -35,25 +35,3 @@
 .btn-danger {
   background-color: red;
 }
-
-.play-card {
-  position: relative;
-}
-
-.play-button {
-  position: absolute;
-  top: 63%;
-  left: 81%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.play-button i {
-  color: white;
-}
