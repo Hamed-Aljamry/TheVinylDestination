@@ -5,7 +5,8 @@
         <% @vinyls.each_slice(3) do |vinyls_row| %>
           <div class="row">
             <% vinyls_row.each do |vinyl| %>
-              <div class="col-md-4">
+              <% col_class = vinyls_row.length == 1 ? 'col-md-12' : vinyls_row.length == 2 ? 'col-md-6' : 'col-md-4' %>
+              <div class="<%= col_class %>">
                 <div class="card">
                   <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
                     <%= cl_image_tag vinyl.photo.key, height: 300, width: 300, crop: :fill %>
