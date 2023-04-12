@@ -4,7 +4,7 @@
       <div class="card-deck">
         <% if @vinyls.length == 1 %>
           <% vinyl = @vinyls.first %>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="card">
               <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
                 <div class="vinyl-image">
