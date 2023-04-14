@@ -1,5 +1,10 @@
 class Vinyl < ApplicationRecord
   belongs_to :user
-  belongs_to :song, optional: true
   has_one_attached :photo
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :artist, presence: true
+  validates :genre, presence: true
+  validates :photo, presence: true
+
 end

@@ -33,6 +33,10 @@ gem "pg_search"
 
 gem 'rspotify'
 
+gem 'rack-cors'
+
+gem 'active_model_serializers'
+
 gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
