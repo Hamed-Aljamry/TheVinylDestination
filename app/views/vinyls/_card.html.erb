@@ -13,6 +13,10 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= vinyl.name %></h5>
                   <p class="card-text"><%= vinyl.description %></p>
+                  <% if vinyl.spotify_track %>
+                    <p>Spotify track: <%= vinyl.spotify_track.name %></p>
+                    <iframe src="https://open.spotify.com/embed/track/<%= vinyl.spotify_track.id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                  <% end %>
                 </div>
               <% end %>
             </div>
@@ -29,6 +33,10 @@
                       <div class="card-body">
                         <h5 class="card-title"><%= vinyl.name %></h5>
                         <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
+                        <% if vinyl.spotify_track %>
+                          <p>Spotify track: <%= vinyl.spotify_track.name %></p>
+                          <iframe src="https://open.spotify.com/embed/track/<%= vinyl.spotify_track.id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <% end %>
                       </div>
                     <% end %>
                     <% if vinyl.user_id == current_user.id %>

@@ -43,8 +43,25 @@ images = [
   "app/assets/images/FrankOceanVinyl.jpeg"
 ]
 
+# 10.times do
+#   file = URI.open(images.sample)
+#   vinyl = Vinyl.create!(
+#     name: Faker::Music.album,
+#     description: Faker::Lorem.paragraph,
+#     price: rand(10..50),
+#     artist: Faker::Music.band,
+#     genre: Faker::Music.genre,
+#     released_at: Faker::Date.between(from: 30.years.ago, to: Date.today),
+#     music_url: "https://example.com/music/#{rand(1..100)}.mp3",
+#     user: users.sample
+#   )
+#   vinyl.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+#   vinyl.save
+# end
+
 10.times do
   file = URI.open(images.sample)
+  spotify_album = RSpotify::Album.search(Faker::Music.album).first
   vinyl = Vinyl.create!(
     name: Faker::Music.album,
     description: Faker::Lorem.paragraph,
@@ -53,7 +70,9 @@ images = [
     genre: Faker::Music.genre,
     released_at: Faker::Date.between(from: 30.years.ago, to: Date.today),
     music_url: "https://example.com/music/#{rand(1..100)}.mp3",
-    user: users.sample
+    user: users.sample,
+    track_id: spotify_album&.tracks&.first&.id,
+    spotify_url: spotify_album&.external_urls&.dig('spotify')
   )
   vinyl.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   vinyl.save
