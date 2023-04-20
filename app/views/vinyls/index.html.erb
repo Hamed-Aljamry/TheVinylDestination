@@ -1,1 +1,12 @@
+
+<% track = RSpotify::Track.search('currents').first %>
+<%= track.name %>
+<%= track.artists.first.name %>
+<br>
+<% album = RSpotify::Album.search('Forest Hills drive').first %>
+<%= album.name %>
+<%= album.artists.first.name %>
+<%= album.release_date %>
+
+
 <%= render "vinyls", vinyls: @vinyls %>
