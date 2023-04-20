@@ -30,7 +30,18 @@ end
 puts "Users created👨🏻‍💻"
 puts "Creating Vinyls💿....."
 
-images = ["app/assets/images/TylerVinyl.jpeg", "app/assets/images/DrakeVinyl.webp", "app/assets/images/WeekndVinyl.jpeg", "app/assets/images/DirtyComputerVinyl.jpg","app/assets/images/PinkFloydVinyl.avif", "app/assets/images/MichealJacksonVinyl.webp", "app/assets/images/KidCudiVinyl.jpeg", "app/assets/images/KendrickVinylCover.jpeg", "app/assets/images/KanyeVinyl.jpeg", "app/assets/images/FrankOceanVinyl.jpeg"]
+images = [
+  "app/assets/images/TylerVinyl.jpeg",
+  "app/assets/images/MichealJacksonVinyl.webp",
+  "app/assets/images/DrakeVinyl.webp",
+  "app/assets/images/DirtyComputerVinyl.jpg",
+  "app/assets/images/PinkFloydVinyl.avif",
+  "app/assets/images/KidCudiVinyl.jpeg",
+  "app/assets/images/WeekndVinyl.jpeg",
+  "app/assets/images/KendrickVinylCover.jpeg",
+  "app/assets/images/KanyeVinyl.jpeg",
+  "app/assets/images/FrankOceanVinyl.jpeg"
+]
 
 10.times do
   file = URI.open(images.sample)

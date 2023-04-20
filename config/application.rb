@@ -23,6 +23,5 @@ module TheVinylDestination
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.load_dotenv
   end
 end

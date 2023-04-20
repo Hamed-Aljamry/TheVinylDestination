@@ -5,6 +5,4 @@ class Vinyl < ApplicationRecord
   validates :description, presence: true
   validates :artist, presence: true
   validates :genre, presence: true
-  validates :photo, presence: true
-
 end
