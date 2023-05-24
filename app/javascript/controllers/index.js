@@ -16,5 +16,5 @@ application.register("search", SearchController)
 import SeeMoreController from "./see_more_controller"
 application.register("see-more", SeeMoreController)
 
-import VinylsController from "./vinyls_controller"
-application.register("vinyls", VinylsController)
+// import VinylsController from "./vinyls_controller"
+// application.register("vinyls", VinylsController)
