@@ -21,3 +21,15 @@
     </div>
   </div>
 </div>
+
+<%= form_with(model: @vinyl, url: vinyls_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :song_name %>
+    <%= form.text_field :song_name %>
+  </div>
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist %>
+  </div>
+  <%= form.submit "Find Song" %>
+<% end %>

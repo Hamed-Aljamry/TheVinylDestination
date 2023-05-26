@@ -5,6 +5,7 @@ class Vinyl < ApplicationRecord
   validates :description, presence: true
   validates :artist, presence: true
   validates :genre, presence: true
+  validates :song_name, presence: true
 
   def spotify_track
     RSpotify::Track.find(self.track_id)

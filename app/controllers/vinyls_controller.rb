@@ -1,4 +1,5 @@
 require 'rspotify'
+require 'open-uri'
 
 class VinylsController < ApplicationController
   def index
@@ -27,13 +28,49 @@ class VinylsController < ApplicationController
     @track = RSpotify::Track.new
   end
 
+  # def create
+  #   @vinyl = Vinyl.new(vinyl_params)
+  #   @vinyl.user = current_user
+
+  #   if @vinyl.save
+  #     redirect_to @vinyl, notice: 'Vinyl was successfully created.'
+  #   else
+  #     render :new
+  #   end
+  # end
   def create
     @vinyl = Vinyl.new(vinyl_params)
-    @vinyl.user = current_user
+    song_name = params[:vinyl][:song_name]
+    artist = params[:vinyl][:artist]
 
-    if @vinyl.save
-      redirect_to @vinyl, notice: 'Vinyl was successfully created.'
+    # Search for the song on Spotify
+    results = RSpotify::Track.search("#{song_name} #{artist}")
+
+    if results.any?
+      track = results.first
+      p track
+      @vinyl.song_id = track.id
+      @vinyl.spotify_url = track.external_urls['spotify']
+      @vinyl.name = track.name
+      @vinyl.artist = track.artists.first.name
+      @vinyl.music_url = track.preview_url
+      @vinyl.user = current_user
+      @vinyl.description = "Who cares"
+      @vinyl.genre = "Whevs"
+      photo = URI.open(track.album.images.first["url"])
+      @vinyl.photo.attach(io: photo, filename: track.album.images.first["url"].split("/").last)
+      # Set other vinyl attributes as needed
+
+      if @vinyl.save
+        p @vinyl
+        redirect_to vinyl_path(@vinyl), notice: 'Vinyl created successfully.'
+      else
+        p @vinyl
+        p @vinyl.errors.messages
+        render :new
+      end
     else
+      flash.now[:alert] = 'Song not found on Spotify.'
       render :new
     end
   end
@@ -48,6 +85,6 @@ class VinylsController < ApplicationController
   private
 
   def vinyl_params
-    params.require(:vinyl).permit(:name, :description, :photo, :genre, :artist, :price, :track_id, :user_id, :released_at)
+    params.require(:vinyl).permit(:name, :url, :description, :photo, :genre, :artist, :price, :track_id, :user_id, :released_at, :song_name)
   end
 end
