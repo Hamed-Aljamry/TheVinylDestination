@@ -71,6 +71,7 @@ images = [
     released_at: Faker::Date.between(from: 30.years.ago, to: Date.today),
     music_url: "https://example.com/music/#{rand(1..100)}.mp3",
     user: users.sample,
+    song_name:"hi",
     track_id: spotify_album&.tracks&.first&.id,
     spotify_url: spotify_album&.external_urls&.dig('spotify')
   )

@@ -5,6 +5,7 @@ class VinylsController < ApplicationController
   def index
     @vinyls = Vinyl.all
     @vinyl = Vinyl.new
+    @vinyls = Vinyl.order(created_at: :desc)
 
     if params[:query].present?
       @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
@@ -28,16 +29,6 @@ class VinylsController < ApplicationController
     @track = RSpotify::Track.new
   end
 
-  # def create
-  #   @vinyl = Vinyl.new(vinyl_params)
-  #   @vinyl.user = current_user
-
-  #   if @vinyl.save
-  #     redirect_to @vinyl, notice: 'Vinyl was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
   def create
     @vinyl = Vinyl.new(vinyl_params)
     song_name = params[:vinyl][:song_name]
