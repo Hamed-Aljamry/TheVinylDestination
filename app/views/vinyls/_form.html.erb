@@ -5,31 +5,14 @@
   <!-- Modal -->
   <div data-modal-target="modal" class="modal">
     <div class="modal-content">
-      <%= simple_form_for Vinyl.new do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-        <%= f.label :description %>
-        <%= f.text_field :description, class: "form-control" %>
-        <%= f.label :genre %>
-        <%= f.text_field :genre, class: "form-control" %>
-        <%= f.label :artist %>
-        <%= f.text_field :artist, class: "form-control" %>
-        <%= f.input :photo, label: "Enter image URL", placeholder: "Google-image-url", class: "form-control" %>
-        <%= f.submit "Add Vinyl", class: "btn btn-primary" %>
+    <%= form_with(model: @vinyl, url: vinyls_path, method: :post) do |form| %>
+        <%= form.label :song_name %>
+        <%= form.text_field :song_name %>
+        <%= form.label :artist %>
+        <%= form.text_field :artist %>
+        <%= form.submit "Find Song" %>
       <% end %>
     <button data-modal-target="closeBtn" class="closebtn">Close</button>
     </div>
   </div>
 </div>
-
-<%= form_with(model: @vinyl, url: vinyls_path, method: :post) do |form| %>
-  <div class="field">
-    <%= form.label :song_name %>
-    <%= form.text_field :song_name %>
-  </div>
-  <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist %>
-  </div>
-  <%= form.submit "Find Song" %>
-<% end %>

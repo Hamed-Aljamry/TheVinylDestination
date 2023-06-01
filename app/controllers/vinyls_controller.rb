@@ -48,13 +48,13 @@ class VinylsController < ApplicationController
 
     if results.any?
       track = results.first
-      p track
+      # p track
+      @vinyl.user = current_user
       @vinyl.song_id = track.id
       @vinyl.spotify_url = track.external_urls['spotify']
       @vinyl.name = track.name
       @vinyl.artist = track.artists.first.name
       @vinyl.music_url = track.preview_url
-      @vinyl.user = current_user
       @vinyl.description = "Who cares"
       @vinyl.genre = "Whevs"
       photo = URI.open(track.album.images.first["url"])
@@ -62,11 +62,11 @@ class VinylsController < ApplicationController
       # Set other vinyl attributes as needed
 
       if @vinyl.save
-        p @vinyl
+        # p @vinyl
         redirect_to vinyl_path(@vinyl), notice: 'Vinyl created successfully.'
       else
-        p @vinyl
-        p @vinyl.errors.messages
+        # p @vinyl
+        # p @vinyl.errors.messages
         render :new
       end
     else
