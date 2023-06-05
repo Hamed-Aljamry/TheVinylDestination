@@ -59,7 +59,7 @@ images = [
 #   vinyl.save
 # end
 
-10.times do
+3.times do
   file = URI.open(images.sample)
   spotify_album = RSpotify::Album.search(Faker::Music.album).first
   vinyl = Vinyl.create!(
