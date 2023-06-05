@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h5 class="card-title"><%= vinyl.name %></h5>
                         <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
-                      <% if vinyl.spotify_url.present? %>
+                      <% if vinyl.spotify_url.present? && vinyl.song_id %>
                         <p>Spotify track: <%= vinyl.name %></p>
                         <iframe src="https://open.spotify.com/embed/track/<%= vinyl.song_id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         <% elsif vinyl.spotify_track %>

@@ -3,16 +3,14 @@ require 'open-uri'
 
 class VinylsController < ApplicationController
   def index
-    @vinyls = Vinyl.all
-    @vinyl = Vinyl.new
+    # @vinyls = Vinyl.all
     @vinyls = Vinyl.order(created_at: :desc)
-
+    @vinyl = Vinyl.new
     if params[:query].present?
       @vinyls = @vinyls.where("name ILIKE ? OR artist ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     else
       @vinyls = Vinyl.all
     end
-
     if turbo_frame_request?
       render partial: "vinyls", locals: { vinyls: @vinyls }
     else
@@ -46,8 +44,8 @@ class VinylsController < ApplicationController
       @vinyl.name = track.name
       @vinyl.artist = track.artists.first.name
       @vinyl.music_url = track.preview_url
-      @vinyl.description = "Who cares"
-      @vinyl.genre = "Whevs"
+      @vinyl.description = "blank"
+      @vinyl.genre = "blank"
       photo = URI.open(track.album.images.first["url"])
       @vinyl.photo.attach(io: photo, filename: track.album.images.first["url"].split("/").last)
       # Set other vinyl attributes as needed
@@ -76,6 +74,7 @@ class VinylsController < ApplicationController
   private
 
   def vinyl_params
-    params.require(:vinyl).permit(:name, :url, :description, :photo, :genre, :artist, :price, :track_id, :user_id, :released_at, :song_name)
+    params.require(:vinyl).permit(:name, :url, :description,
+                                  :photo, :genre, :artist, :price, :track_id, :user_id, :released_at, :song_name)
   end
 end
