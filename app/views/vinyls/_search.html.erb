@@ -1,7 +1,9 @@
-<%= form_with(url: vinyls_path, method: :get, data: {controller: "search", turbo_frame: "vinyls", turbo_action: "advance"}) do |form| %>
-  <%= form.label :query, "Search by band name:"%>
-  <div class="flex space-x-3">
-    <%= form.text_field :query, data: {action: "input->search#search"} %>
-  <!-- <%= form.submit 'Search', class: "cursor-pointer" %> -->
-  </div>
-<% end %>
+<div class="search-wrapper">
+  <%= form_with(url: vinyls_path, method: :get, data: {controller: "search", turbo_frame: "vinyls", turbo_action: "advance"}) do |form| %>
+    <%= form.label :query, "Search by song name:"%>
+    <div class="flex space-x-3">
+      <%= form.text_field :query, data: {action: "input->search#search"}, class: "search-bar" %>
+    <!-- <%= form.submit 'Search', class: "cursor-pointer" %> -->
+    </div>
+  <% end %>
+</div>

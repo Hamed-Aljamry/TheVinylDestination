@@ -1,59 +1,23 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-      <div class="card-deck">
-        <% if @vinyls.length == 1 %>
-          <% vinyl = @vinyls.first %>
-          <div class="col-md-4">
-            <div class="card">
-              <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
-                <div class="vinyl-image">
-                  <%= cl_image_tag vinyl.photo.key, crop: :fit %>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title"><%= vinyl.name %></h5>
-                  <p class="card-text"><%= vinyl.description %></p>
-                  <% if vinyl.spotify_track %>
-                    <p>Spotify track: <%= vinyl.spotify_track.name %></p>
-                    <iframe src="https://open.spotify.com/embed/track/<%= vinyl.spotify_track.id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% else %>
-          <% @vinyls.each_slice(3) do |vinyls_row| %>
-            <div class="row">
-              <% vinyls_row.each do |vinyl| %>
-                <% col_class = vinyls_row.length == 2 ? 'col-md-4' : 'col-md-4' %>
-                <div class="<%= col_class %>">
-                  <div class="card">
-                    <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
-                      <%= cl_image_tag vinyl.photo.key, height: 300, width: 300, crop: :fill %>
-                      <div class="card-body">
-                        <h5 class="card-title"><%= vinyl.name %></h5>
-                        <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
-                      <% if vinyl.spotify_url.present? && vinyl.song_id %>
-                        <p>Spotify track: <%= vinyl.name %></p>
-                        <iframe src="https://open.spotify.com/embed/track/<%= vinyl.song_id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                        <% elsif vinyl.spotify_track %>
-                        <p>Spotify track: <%= vinyl.spotify_track.name %></p>
-                        <iframe src="https://open.spotify.com/embed/track/<%= vinyl.spotify_track.id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                      <% end %>
-                      </div>
-                    <% end %>
-                    <% if vinyl.user_id == current_user.id %>
-                      <div class="card-footer">
-                        <%= button_to "Delete Vinyl", vinyl_path(vinyl), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", onclick: "return confirm('Are you sure?')" %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+<% @vinyls.each_slice(4) do |vinyls_row| %>
+  <% vinyls_row.each do |vinyl| %>
+    <% col_class = vinyls_row.length == 2 ? 'col-md-4' : 'col-md-4' %>
+        <%= link_to vinyl_path(vinyl), data: { turbo: "false", "turbo-visit-control": "reload" } do %>
+          <%= cl_image_tag vinyl.photo.key, height: 300, width: 300, crop: :fill %>
+          <div class="card-body">
+            <h5 class="card-title"><%= vinyl.name %></h5>
+            <p class="card-text"><%= truncate(vinyl.description, length: 30) %></p>
+          <% if vinyl.spotify_url.present? && vinyl.song_id %>
+            <p>Spotify track: <%= vinyl.name %></p>
+            <iframe src="https://open.spotify.com/embed/track/<%= vinyl.song_id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <% elsif vinyl.spotify_track %>
+            <p>Spotify track: <%= vinyl.spotify_track.name %></p>
+            <iframe src="https://open.spotify.com/embed/track/<%= vinyl.spotify_track.id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% end %>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+        <% if vinyl.user_id == current_user.id %>
+          <div class="card-footer">
+            <%= button_to "Delete Vinyl", vinyl_path(vinyl), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", onclick: "return confirm('Are you sure?')" %>
+          </div>
+      <% end %>
+  <% end %>
+<% end %>

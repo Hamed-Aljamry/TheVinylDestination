@@ -1,39 +1,11 @@
-.container {
-  margin: auto;
-  max-width: 1000px;
+.search-bar {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 600px;
 }
 
-.card {
-  margin: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 10px;
-}
-
-.card-text {
-  font-size: 14px;
-  margin: 10px;
-}
-
-.btn-danger {
-  margin: 2px;
-  border-radius: 5%;
-}
-
-.btn-danger {
-  background-color: red;
+.search-wrapper {
+  text-align: center;
 }
